@@ -1,0 +1,253 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+    height: 100vh;
+    width: 100%;
+    background-color: #F9F3EF;
+}
+
+header {
+    height: 15%;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding-left: 2%;
+    gap: 15px;
+    background-color: #1B3C53;
+}
+
+h1 {
+    font-family: "Mulish", sans-serif;
+    color: #F9F3EF;
+    font-size: 2.5em;
+}
+
+#div-header {
+    display: flex;
+    align-items: center;
+    gap: 25px;
+}
+
+#logo-header {
+    height: 120px;
+    width: auto;
+}
+
+nav {
+    background-color: #1B3C53;
+    height: 6%;
+    width: 100%;
+}
+
+#ul-nav {
+    height: auto;
+    display: flex;
+    justify-content: space-around;
+}
+
+.itens-nav {
+    text-decoration: none;
+    font-family: "Mulish", sans-serif;
+    color: #F9F3EF;
+    transition: color 0.8s ease;
+    list-style-type: none;
+    font-size: 1.4em;
+    cursor: pointer;
+    
+}
+
+.itens-nav:hover {
+    color: #b8b6b4;
+}
+
+li {
+    list-style-type: none;
+}
+
+main {
+    display: flex;
+    justify-content: center;
+}
+
+#div-main {
+    min-height: auto;
+    width: 70%;
+    background-color: #456882;
+
+    display: flex;
+    flex-direction: column;
+
+    align-items: center;
+    justify-content: flex-start;
+    padding-top: 24px;
+}
+
+h2 {
+    font-family: "Mulish", sans-serif;
+    font-size: 2.5em;
+    color: #F9F3EF;
+
+}
+
+h3 {
+    font-size: 1.5em;
+}
+
+#div-h2 {
+    display: flex;
+    justify-content: center;
+}
+
+#imagem-jogo {
+    height: auto;
+    width: 63%;
+    border: 5px solid #1B3C53;
+    border-radius: 5px;
+}
+
+#card-jogo {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    gap: 30px;
+    margin-top: 5%;
+}   
+
+#botao-jogar {
+    border: none;
+    padding: 15px 36px;
+    font-size: 1.3em;
+    color: #1B3C53;
+    background-color: #F9F3EF;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: color 0.8s ease;
+}
+
+#botao-jogar:hover {
+    background-color: #1B3C53;
+    color: #F9F3EF;
+}
+
+#texto-principal {
+    width: 70%;
+
+    font-family: "Mulish", sans-serif;
+    font-size: 1.2em;
+    color: #F9F3EF;
+
+    margin-top: 30px;
+    margin-bottom: 60px;
+}
+
+.dropdown {
+  position: relative;
+  width: max-content;
+}
+
+.dropdown-menu {
+    width: 100%;
+    position: absolute;
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    background-color: #1B3C53;
+    border-radius: 12px;
+    
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(-10px);
+
+    transition:
+        opacity 0.3s ease,
+        transform 0.3s ease,
+        visibility 0.3s ease;
+
+        
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+    z-index: 1000;
+
+
+
+}
+
+.dropdown-menu a{
+    display: block;
+    font-family: "Mulish", sans-serif;
+    color: #F9F3EF;
+    text-decoration: none;
+    padding: 15px 10px;
+}
+
+.dropdown:hover .dropdown-menu {
+    
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+
+}
+
+.itens-dropdown {
+    text-decoration: none;
+    font-family: "Mulish", sans-serif;
+    color: #F9F3EF;
+    list-style-type: none;
+    transition: color 0.8s ease;
+    font-size: 1.1em;
+    cursor: pointer;
+}
+
+.itens-dropdown:hover {
+    color: #b8b6b4;
+}
+
+
+.dropdown .ri-arrow-down-s-line {
+  display: inline-block;
+  transition: transform 0.3s ease;
+}
+
+.dropdown:hover .ri-arrow-down-s-line {
+  transform: rotate(180deg);
+}
+
+footer {
+    width: 100%;
+    height: 15%;
+    background-color: #1B3C53;
+    color: #F9F3EF;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    font-family: "Mulish", sans-serif;
+    font-size: 1.1em;
+}
+
+#div-footer {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+#logo-footer {
+    height: 70px;
+    width: auto;
+}
+
+#div-contatos {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 15px
+    ;
+}
+
+#nomes {
+    margin-bottom: 10px;
+}
+
