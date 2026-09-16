@@ -8,6 +8,8 @@ class Grid:
         self.tamanho_celula = 30
         self.grid = [[0 for j in range(self.num_colunas)] for i in range(self.num_linhas)]
         self.cores = Cores.cores_celulas()
+        self.limpar_som = pygame.mixer.Sound("sons/limparLinhas.ogg")
+        self.limpar_som.set_volume(0.2)
     
     def esta_dentro(self, linha, coluna):
         if linha >= 0 and linha < self.num_linhas and coluna >= 0 and coluna < self.num_colunas:
@@ -28,6 +30,7 @@ class Grid:
     def limpar_linha(self, linha):
         for coluna in range(self.num_colunas):
             self.grid[linha][coluna] = 0
+        self.limpar_som.play()
     
     def mover_linha_baixo(self, linha, num_linhas):
         for coluna in range(self.num_colunas):
@@ -43,6 +46,7 @@ class Grid:
             elif completado > 0:
                 self.mover_linha_baixo(linha, completado)
         return completado
+        
     
     def reset(self):
         for linha in range(self.num_linhas):

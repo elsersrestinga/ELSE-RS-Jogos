@@ -8,6 +8,10 @@ tela = pygame.display.set_mode((500, 620))
 pygame.display.set_caption("Tetris")
 clock = pygame.time.Clock()
 
+pygame.mixer.music.load("sons/Tetris-song.ogg")
+pygame.mixer.music.set_volume(0.5)
+pygame.mixer.music.play(-1)
+
 async def main():
     tempo_ultima_descida = pygame.time.get_ticks()
     intervalo_descida = 500

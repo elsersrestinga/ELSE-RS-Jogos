@@ -69,7 +69,7 @@ class Pontuacao:
         self.pontos = pontos
         self.posX = posX
         self.posY = posY
-        self.fonte = pygame.font.SysFont("nonospace", 80, bold=True)
+        self.fonte = pygame.font.SysFont("", 80, bold=True)
         self.aparecer = self.fonte.render(self.pontos, 0, "White")
         self.mostrar()
 
@@ -151,6 +151,8 @@ desenhar_campo()
 #Objetos
 async def main():
     global bolas, raquete_esquerda, raquete_direita, pontuacao1, pontuacao2, jogando, tempo_inicial
+    som_batida = pygame.mixer.Sound("sons/hitPong.ogg")
+    som_batida.set_volume(0.2)
     bolas = [Bolas(tela, "white", largura//2, altura//2, 20)]
     raquete_esquerda = Raquete(tela, "white", 15, altura//2 - 60, 20, 120)
     raquete_direita = Raquete(tela, "white", largura-35, altura//2 - 60, 20, 120)
@@ -172,6 +174,10 @@ async def main():
                         for bola in bolas:
                             bola.iniciar_movimento()
                         jogando = True
+                        pygame.mixer.music.load("sons/Pong-song.ogg")
+                        pygame.mixer.music.set_volume(0.5)
+                        pygame.mixer.music.play(-1)
+                        tempo_inicial = pygame.time.get_ticks()
 
                 if event.key == pygame.K_r:
                     recomeco()
@@ -229,19 +235,23 @@ async def main():
                 if colisao.entre_bola_e_Raquete_esquerda(bola, raquete_esquerda):
                     bola.raquete_colisao()
                     bola.posX = raquete_esquerda.posX + raquete_esquerda.largura_r + bola.tamanho
+                    som_batida.play()
 
                 if colisao.entre_bola_e_Raquete_direita(bola, raquete_direita):
                     bola.raquete_colisao()
                     bola.posX = raquete_direita.posX - bola.tamanho
+                    som_batida.play()
 
                 if colisao.entre_bola_e_paredes(bola):
                     bola.colisao_parede()
+                    som_batida.play()
 
                 if colisao.verificacao_gol_player1(bola):
                     desenhar_campo()
                     pontuacao1.aumento()
                     reiniciar_bola()
                     jogando = False
+                    pygame.mixer.music.stop()
                     break
 
                 if colisao.verificacao_gol_player2(bola):
@@ -249,6 +259,7 @@ async def main():
                     pontuacao2.aumento()
                     reiniciar_bola()
                     jogando = False
+                    pygame.mixer.music.stop()
                     break
 
         pontuacao1.mostrar()

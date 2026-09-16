@@ -1,6 +1,6 @@
 from blocos import *
 from grid import Grid
-import random
+import random, pygame
 
 class Jogo:
     def __init__(self):
@@ -10,6 +10,9 @@ class Jogo:
         self.proximo_bloco = self.random_bloco()
         self.fim_de_jogo = False
         self.pontos = 0
+        self.som_encaixe = pygame.mixer.Sound("sons/lockBlock.ogg")
+        self.som_encaixe.set_volume(0.2)
+
     
     def reler_pontos(self, linhas_completas, mover_baixo_pontos):
         if linhas_completas == 1:
@@ -63,6 +66,7 @@ class Jogo:
         self.reler_pontos(linhas_completas, 0)
         if self.bloco_encaixa() == False:
             self.fim_de_jogo = True
+        self.som_encaixe.play()
     
     def reset(self):
         self.grid.reset()

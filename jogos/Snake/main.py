@@ -59,6 +59,10 @@ class Jogo:
         self.comida = Comida(self.cobra.corpo)
         self.pontos = 0
         self.estado = "rodando"
+        self.som_derrota = pygame.mixer.Sound("sons/deadSnake.ogg")
+        self.som_derrota.set_volume(0.2)
+        self.som_coleta = pygame.mixer.Sound("sons/coletarMaca.ogg")
+        self.som_coleta.set_volume(0.2)
     
     def mostrar(self):
         self.cobra.mostrar()
@@ -73,17 +77,22 @@ class Jogo:
         #cantos
         if self.cobra.corpo[0].x == total_celula or self.cobra.corpo[0].x == -1:
             self.fim_de_jogo()
+            self.som_derrota.play()
         if self.cobra.corpo[0].y == total_celula or self.cobra.corpo[0].y == -1:
             self.fim_de_jogo()
+            self.som_derrota.play()
         #comida
         if self.cobra.corpo[0] == self.comida.posicao:
             self.comida.posicao = self.comida.geracao_pos_aleatoria(self.cobra.corpo)
             self.cobra.adicionar_parte = True
             self.pontos += 1
+            self.som_coleta.play()
         #cauda
         corpo_sem_cabeca = self.cobra.corpo[1:]
         if self.cobra.corpo[0] in corpo_sem_cabeca:
             self.fim_de_jogo()
+            self.som_derrota.play()
+
 
     def fim_de_jogo(self):
         self.cobra.reinicio()
@@ -91,10 +100,14 @@ class Jogo:
         self.estado = "parado"
         self.pontos = 0
 
+pygame.mixer.music.load("sons/Snake-song.ogg")
+pygame.mixer.music.play(-1)
+pygame.mixer.music.set_volume(0.5)
 
 async def main():
     tempo_ultimo_passo = pygame.time.get_ticks()
     intervalo_movimento = 200
+    virar = False
 
     fonte_titulo = pygame.font.SysFont(None, 60)
     fonte_pontos = pygame.font.SysFont(None, 40)
@@ -104,6 +117,7 @@ async def main():
         if jogo.estado == "rodando":
             if tempo_atual - tempo_ultimo_passo > intervalo_movimento:
                 jogo.recarga()
+                virar = True
                 tempo_ultimo_passo = tempo_atual
         for event in pygame.event.get():
             if event.type == pygame.QUIT:
@@ -111,14 +125,18 @@ async def main():
             if event.type == pygame.KEYDOWN:
                 if jogo.estado == "parado":
                     jogo.estado = "rodando"
-                if event.key == pygame.K_UP and jogo.cobra.direcao != Vector2(0, 1):
+                if event.key == pygame.K_UP and jogo.cobra.direcao != Vector2(0, 1) and virar:
                     jogo.cobra.direcao = Vector2(0, -1)
-                elif event.key == pygame.K_DOWN and jogo.cobra.direcao != Vector2(0, -1):
+                    virar = False
+                elif event.key == pygame.K_DOWN and jogo.cobra.direcao != Vector2(0, -1) and virar:
                     jogo.cobra.direcao = Vector2(0, 1)
-                elif event.key == pygame.K_LEFT and jogo.cobra.direcao != Vector2(1, 0):
+                    virar = False
+                elif event.key == pygame.K_LEFT and jogo.cobra.direcao != Vector2(1, 0) and virar:
                     jogo.cobra.direcao = Vector2(-1, 0)
-                elif event.key == pygame.K_RIGHT and jogo.cobra.direcao != Vector2(-1, 0):
+                    virar = False
+                elif event.key == pygame.K_RIGHT and jogo.cobra.direcao != Vector2(-1, 0)and virar:
                     jogo.cobra.direcao = Vector2(1, 0)
+                    virar = False
             
                 
         tela.fill("black")
