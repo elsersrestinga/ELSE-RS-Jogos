@@ -28,7 +28,6 @@ func _process(_delta):
 
 	_aim_container.position = _cue_ball.position
 	
-#	_process_cheat_mode()
 	
 func _input(event):
 	var mouse_motion = event as InputEventMouseMotion
@@ -77,13 +76,3 @@ func _setup_next_shot():
 		_cue_ball.angular_velocity = Vector3.ZERO
 		_cue_ball.set_freeze_state(false)
 		_game_state.current_play_state = Enums.PlayState.AIMING
-
-
-#func _process_cheat_mode():
-#	_cue_ball.apply_central_force(Vector3(
-#			Input.get_action_strength("ui_right")
-#				- Input.get_action_strength("ui_left"),
-#			0,
-#			Input.get_action_strength("ui_down")
-#				- Input.get_action_strength("ui_up")
-#	) * 10)
