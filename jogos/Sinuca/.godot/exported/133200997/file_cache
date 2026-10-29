@@ -1,7 +1,0 @@
-res://resources/debug_game_state.tres::a507a6a9dca82c160c3c03fe1564cd66::1793274698::res://.godot/exported/133200997/export-1fe7837fcfa142010d98349952b7db2d-debug_game_state.res
-res://resources/hud_font_settings.tres::21bfcbdc04e36ff6fd800213c8ba9dde::1793274698::res://.godot/exported/133200997/export-c22274211f5ccc289601b6820d9aa49b-hud_font_settings.res
-res://resources/release_game_state.tres::28d793c05a3ba0f8e45b6a14d8351539::1793274698::res://.godot/exported/133200997/export-e8be664e2666280b96d3b5f3f29d4a4c-release_game_state.res
-res://scenes/ball.tscn::83be28affb32a04cb554a6550949e636::1793274698::res://.godot/exported/133200997/export-d687370f64a28adc6cd2dc42f9ce6f46-ball.scn
-res://scenes/billiard_table.tscn::024ecccd03659f4ecf52de5e266d6812::1793274698::res://.godot/exported/133200997/export-60de63778dc98c375ae8316e9a94158e-billiard_table.scn
-res://scenes/main.tscn::5d00fa54d328ca8d5025af3ced81160d::1793274698::res://.godot/exported/133200997/export-3ad5c15c4f3250da0cc7c1af1770d85f-main.scn
-res://scenes/pocket.tscn::dbc416c1cc8c77d38bfa6cbba6474e55::1793274698::res://.godot/exported/133200997/export-326b021181f3154526438bdf4217417a-pocket.scn
