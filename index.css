@@ -27,6 +27,22 @@ h1 {
     font-size: 2.5em;
 }
 
+#botao-jogar {
+    border: none;
+    padding: 10px 30px;
+    font-size: 1.0em;
+    color: #1B3C53;
+    background-color: #F9F3EF;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: color 0.8s ease;
+}
+
+#botao-jogar:hover {
+    background-color: #1B3C53;
+    color: #F9F3EF;
+}
+
 #div-header {
     display: flex;
     align-items: center;
