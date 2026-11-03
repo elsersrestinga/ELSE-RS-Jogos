@@ -1,0 +1,13 @@
+SpotLight3D
+Button
+CollisionShape3D
+StaticBody3D
+Label
+MarginContainer
+Node3D
+Area3D
+Node
+AnimationPlayer
+Camera3D
+RigidBody3D
+DirectionalLight3D
