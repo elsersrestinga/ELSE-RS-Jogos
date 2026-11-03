@@ -1,4 +1,0 @@
-extends Node
-
-enum BallType { LISAS, LISTRADAS, CUE_BALL, EIGHT_BALL, TBD}
-enum PlayState { AIMING, BALLS_IN_PLAY, BALL_IN_HAND, GAME_OVER}
