@@ -1,9 +1,0 @@
-[gd_resource type="Resource" script_class="GameState" format=3 uid="uid://dia6b2wdpi01i"]
-
-[ext_resource type="Script" uid="uid://dg3xs8k6g5egk" path="res://scripts/game_state.gd" id="1_l40f8"]
-
-[resource]
-script = ExtResource("1_l40f8")
-ball_suit_by_player_id = Array[int]([4, 4])
-balls_remaining_by_player_id = Array[int]([7, 7])
-metadata/_custom_type_script = "uid://dg3xs8k6g5egk"
