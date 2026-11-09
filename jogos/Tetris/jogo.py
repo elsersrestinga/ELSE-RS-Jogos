@@ -21,6 +21,8 @@ class Jogo:
             self.pontos+= 300
         elif linhas_completas == 3:
             self.pontos+= 500
+        elif linhas_completas == 4:
+            self.pontos+= 1000
         self.pontos += mover_baixo_pontos
 
     def random_bloco(self):
